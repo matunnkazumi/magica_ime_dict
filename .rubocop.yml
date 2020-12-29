@@ -3,5 +3,9 @@ AllCops:
     - "vendor/**/*"
     - "bin/**"
     - "tmp/**/*"
-    - "lib/**/*"
+    - "node_modules/**/*"
+    - ".git/**/*"
   NewCops: enable
+
+Style/Documentation:
+  Enabled: false
