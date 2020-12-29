@@ -1,0 +1,4 @@
+/spec/reports/
+/.bundle/
+/vendor/bundle
+/lib/bundler/man/
