@@ -1,0 +1,11 @@
+{
+  "yaml.format.enable": true,
+  "yaml.completion": true,
+  "yaml.validate": true,
+  "yaml.hover": true,
+  "yaml.schemas": {
+    "./schema/namelist.json": [
+      "./data/kazumi/puella.yaml"
+    ]
+  }
+}

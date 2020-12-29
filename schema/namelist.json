@@ -1,0 +1,37 @@
+{
+  "title": "name list",
+  "type": "array",
+  "items": {
+    "title": "Person",
+    "type": "object",
+    "properties": {
+      "sei": {
+        "description": "名字",
+        "$ref": "#/definitions/pair"
+      },
+      "mei": {
+        "description": "名前",
+        "$ref": "#/definitions/pair"
+      }
+    }
+  },
+  "definitions": {
+    "pair": {
+      "type": "object",
+      "title": "NamePair",
+      "required": [
+        "kaki"
+      ],
+      "properties": {
+        "kaki": {
+          "type": "string",
+          "description": "表記"
+        },
+        "yomi": {
+          "type": "string",
+          "description": "読み"
+        }
+      }
+    }
+  }
+}
