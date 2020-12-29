@@ -1,0 +1,7 @@
+type pair = { kaki: String, yomi: String | nil }
+type personal = { sei: pair | nil, mei: pair | nil }
+type result = Array[personal]
+
+class Reader
+  def self.load: (Pathname) -> result
+end
