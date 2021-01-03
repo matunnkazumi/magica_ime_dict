@@ -41,4 +41,13 @@ class Changelog
       reqexp.match(line)
     end
   end
+
+  def link_label_dict
+    regexp = /^\[(?<label>[^\[\]]+)\]: (?<link>\S+)/
+
+    enum_link_label_definitions.map do |line|
+      matched = regexp.match(line)
+      [matched[:label], matched[:link]] unless matched.nil?
+    end.compact.to_h
+  end
 end

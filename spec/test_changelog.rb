@@ -102,4 +102,25 @@ class TestChangeLog < Minitest::Test
 
     assert_equal expected, log.enum_link_label_definitions.to_a
   end
+
+  def test_link_labels_label
+    log = Changelog.new(Pathname.new(@tempfile.path))
+
+    expected = {
+      '0.0.1' => 'https://github.com/matunnkazumi/test/releases/tag/v0.0.1',
+      '0.3.0' => 'https://github.com/matunnkazumi/test/compare/v0.0.1...v0.3.0',
+      '1.0.0' => 'https://github.com/matunnkazumi/test/compare/v0.3.0...v1.0.0',
+      'Unreleased' => 'https://github.com/matunnkazumi/test/compare/v1.0.0...HEAD'
+    }
+
+    assert_equal(expected, log.link_label_dict)
+  end
+
+  def test_link_labels_label_order
+    log = Changelog.new(Pathname.new(@tempfile.path))
+
+    expected = ['Unreleased', '1.0.0', '0.3.0', '0.0.1']
+
+    assert_equal(expected, log.link_label_dict.keys, '順番が異なります')
+  end
 end

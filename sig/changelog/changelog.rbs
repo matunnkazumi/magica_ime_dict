@@ -4,7 +4,9 @@ class Changelog
   def initialize: (Pathname) -> void
   def first_line: -> String
   def enum_version_lines: -> Array[String]
-  def enum_versions: -> Array[String | nil] # TODO: nilは来ないはずなので回避方法を探す
+  # TODO: nilは来ないはずなので回避方法を探す
+  def enum_versions: -> Array[String | nil]
   def enum_type_lines: -> Array[String]
   def enum_link_label_definitions: -> Array[String]
+  def link_label_dict: -> Hash[String, String]
 end
