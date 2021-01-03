@@ -10,7 +10,7 @@ target :lib do
   # check "Gemfile"
   # check "Rakefile"
 
-  library 'pathname'
+  library 'pathname', 'csv', 'forwardable'
 end
 
 target :spec do

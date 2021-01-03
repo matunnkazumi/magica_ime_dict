@@ -1,0 +1,18 @@
+type msime_types = :sei | :mei | :jinmei | :meishi
+
+module MSIME
+  def self.convert: (Enumerable[personal] src) -> Enumerable[Entry]
+  def self.write_file: (Enumerable[Entry] src, Pathname path) -> void
+
+  class Entry
+    attr_accessor yomi: String
+    attr_accessor kaki: String
+    attr_accessor type: msime_types
+    def initialize: (String yomi, String kaki, msime_types type_) -> void
+    def type_readable: () -> String
+  end
+  
+  private
+
+  def self.pair_to_entry: (pair | nil pair, msime_types type_) -> Entry?
+end
