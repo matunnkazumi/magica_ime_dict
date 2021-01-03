@@ -3,3 +3,7 @@ end
 
 class TestChangeLog
 end
+
+class TestChangeLogValidation
+  @changelog: Changelog
+end
