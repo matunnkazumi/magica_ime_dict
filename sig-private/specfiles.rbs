@@ -1,8 +1,5 @@
 class YamlSchemaValidation
-  def test_validate: -> untyped
+end
 
-  private
-  def schema_yaml_hash: -> untyped
-
-  def assert: (untyped, untyped) -> untyped
+class TestChangeLog
 end
