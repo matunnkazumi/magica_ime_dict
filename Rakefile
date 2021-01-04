@@ -14,10 +14,22 @@ desc 'MSIME用の辞書ファイルの生成'
 task 'MSIME_dict' => 'build' do |_t|
   dest = Pathname('build/magica_ime_dict_MSIME.txt')
 
-  entries = Reader.load(Pathname('data/kazumi/puella.yaml'))
+  entries = puella_all_name_list
   ime_entries = MSIME.convert(entries)
 
   MSIME.write_file(ime_entries, dest)
+end
+
+def puella_all_name_list
+  puella_name_files
+    .map { |file| Pathname(file) }
+    .map { |path| Reader.load(path) }
+    .flatten
+end
+
+def puella_name_files
+  json_path = Pathname('.vscode/settings.json')
+  YAML.load_file(json_path.to_s).dig('yaml.schemas', './schema/namelist.json')
 end
 
 CLOBBER.include('build/*.txt')

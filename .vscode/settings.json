@@ -5,6 +5,7 @@
   "yaml.hover": true,
   "yaml.schemas": {
     "./schema/namelist.json": [
+      "./data/madoka/puella.yaml",
       "./data/kazumi/puella.yaml"
     ],
     "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/github-action.json": [
