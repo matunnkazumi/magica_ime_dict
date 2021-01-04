@@ -10,6 +10,7 @@ module MSIME
     attr_accessor type: msime_types
     def initialize: (String yomi, String kaki, msime_types type_) -> void
     def type_readable: () -> String
+    TYPE_TABLE: Hash[Symbol, String] # キーの型はmsime_typesの方がよい？
   end
   
   private
