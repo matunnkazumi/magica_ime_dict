@@ -6,6 +6,9 @@
   "yaml.schemas": {
     "./schema/namelist.json": [
       "./data/kazumi/puella.yaml"
-    ]
+    ],
+    "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/github-action.json": [
+      "./github/workflows/*.yml"
+    ],
   }
 }

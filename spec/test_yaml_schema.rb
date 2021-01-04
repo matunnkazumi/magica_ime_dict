@@ -26,6 +26,7 @@ class YamlSchemaValidation < Minitest::Test
 
     schemas = settings['yaml.schemas']
     schemas
+      .reject { |schema_file| schema_file.start_with?('https://') }
       .transform_keys { |schema_file| Pathname(schema_file) }
       .transform_keys { |pathname| JSONSchemer.schema(pathname) }
   end
