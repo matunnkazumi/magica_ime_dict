@@ -15,5 +15,6 @@ module MSIME
   
   private
 
+  def self.convert_person: (personal person) -> Enumerable[Entry]
   def self.pair_to_entry: (pair | nil pair, msime_types type_) -> Entry?
 end

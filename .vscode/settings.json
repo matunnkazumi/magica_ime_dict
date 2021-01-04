@@ -6,7 +6,11 @@
   "yaml.schemas": {
     "./schema/namelist.json": [
       "./data/madoka/puella.yaml",
-      "./data/kazumi/puella.yaml"
+      "./data/kazumi/puella.yaml",
+      "./data/oriko/puella.yaml",
+      "./data/suzune/puella.yaml",
+      "./data/tart/puella.yaml",
+      "./data/magireco/puella.yaml"
     ],
     "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/github-action.json": [
       "./github/workflows/*.yml"
