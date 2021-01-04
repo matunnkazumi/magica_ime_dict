@@ -44,7 +44,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
-          release_name: ${{ steps.changelog_reader.outputs.version }}
+          release_name: ${{ github.ref }}
           body: ${{ steps.changelog_reader.outputs.changes }}
           draft: false
           prerelease: false
@@ -55,7 +55,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./build/magica_ime_data_MSIME.txt
-          asset_name: magica_ime_data_MSIME_${{ steps.changelog_reader.outputs.version }}.txt
+          asset_name: magica_ime_data_MSIME_${{ github.ref }}.txt
           asset_content_type: text/plain
       - name: Upload Release Asset ATOK
         uses: actions/upload-release-asset@v1
@@ -64,7 +64,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./build/magica_ime_data_ATOK.txt
-          asset_name: magica_ime_data_ATOK_${{ steps.changelog_reader.outputs.version }}.txt
+          asset_name: magica_ime_data_ATOK_${{ github.ref }}.txt
           asset_content_type: text/plain
       - name: Upload Release Asset MAC
         uses: actions/upload-release-asset@v1
@@ -73,5 +73,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./build/magica_ime_data_MAC.txt
-          asset_name: magica_ime_data_MAC_${{ steps.changelog_reader.outputs.version }}.txt
+          asset_name: magica_ime_data_MAC_${{ github.ref }}.txt
           asset_content_type: text/plain
