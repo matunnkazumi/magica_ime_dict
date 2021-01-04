@@ -13,19 +13,15 @@ module MSIME
       @type = type_
     end
 
+    TYPE_TABLE = {
+      mei: '姓',
+      sei: '名',
+      jinmei: '人名',
+      meishi: '名詞'
+    }.freeze
+
     def type_readable
-      case type
-      when :mei
-        '名'
-      when :sei
-        '姓'
-      when :jinmei
-        '人名'
-      when :meishi
-        '名詞'
-      else
-        ''
-      end
+      TYPE_TABLE[type]
     end
   end
 
