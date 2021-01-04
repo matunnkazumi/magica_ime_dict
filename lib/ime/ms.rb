@@ -14,8 +14,8 @@ module MSIME
     end
 
     TYPE_TABLE = {
-      mei: '姓',
-      sei: '名',
+      sei: '姓',
+      mei: '名',
       jinmei: '人名',
       meishi: '名詞'
     }.freeze
