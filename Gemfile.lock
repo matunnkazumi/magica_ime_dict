@@ -52,6 +52,8 @@ GEM
       parser (>= 2.7.1.5)
     rubocop-minitest (0.10.1)
       rubocop (>= 0.87)
+    rubocop-rake (0.5.1)
+      rubocop
     ruby-progressbar (1.10.1)
     steep (0.39.0)
       activesupport (>= 5.1)
@@ -78,6 +80,7 @@ DEPENDENCIES
   rake (= 13.0.3)
   rubocop (= 1.7)
   rubocop-minitest (= 0.10.1)
+  rubocop-rake (= 0.5.1)
   steep (= 0.39)
 
 BUNDLED WITH
