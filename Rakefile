@@ -6,8 +6,9 @@ require 'rake/clean'
 require_relative 'lib/dict/reader'
 require_relative 'lib/ime/ms'
 require_relative 'lib/ime/atok'
+require_relative 'lib/ime/mac'
 
-task default: %w[MSIME_data ATOK_data]
+task default: %w[MSIME_data ATOK_data MAC_data]
 
 directory 'build'
 
@@ -29,6 +30,16 @@ task 'ATOK_data' => 'build' do |_t|
   ime_entries = ATOK.convert(entries)
 
   ATOK.write_file(ime_entries, dest)
+end
+
+desc 'MAC用の辞書ファイルの生成'
+task 'MAC_data' => 'build' do |_t|
+  dest = Pathname('build/magica_ime_data_MAC.txt')
+
+  entries = puella_all_name_list
+  ime_entries = MAC.convert(entries)
+
+  MAC.write_file(ime_entries, dest)
 end
 
 def puella_all_name_list
