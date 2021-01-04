@@ -1,0 +1,20 @@
+type mac_types = :jinmei | :meishi
+
+module MAC
+  def self.convert: (Enumerable[personal] src) -> Enumerable[Entry]
+  def self.write_file: (Enumerable[Entry] src, Pathname path) -> void
+
+  class Entry
+    attr_accessor yomi: String
+    attr_accessor kaki: String
+    attr_accessor type: mac_types
+    def initialize: (String yomi, String kaki, mac_types type_) -> void
+    def type_readable: () -> String
+    TYPE_TABLE: Hash[Symbol, String] # キーの型はmac_typesの方がよい？
+  end
+  
+  private
+
+  def self.convert_person: (personal person) -> Enumerable[Entry]
+  def self.pair_to_entry: (pair | nil pair, mac_types type_) -> Entry?
+end
