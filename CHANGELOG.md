@@ -7,6 +7,13 @@
 ## [Unreleased]
 
 ## [0.0.0] - 2021-00-00
+### Add
+- テスト
+- テスト
 
-[Unreleased]: https://github.com/matunnkazumi/xxxxxx/compare/v0.0.0...HEAD
-[0.0.0]: https://github.com/matunnkazumi/xxxxxx/releases/tag/v0.0.0
+### Changed
+- てすと
+- てすと
+
+[Unreleased]: https://github.com/matunnkazumi/magica_ime_dict/compare/v0.0.0...HEAD
+[0.0.0]: https://github.com/matunnkazumi/magica_ime_dict/releases/tag/v0.0.0
