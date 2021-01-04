@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
+#
+# These codes are licensed under CC0.
+# http://creativecommons.org/publicdomain/zero/1.0/deed.ja
+#
+
 source 'https://rubygems.org'
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
