@@ -28,9 +28,9 @@ jobs:
       - name: type check
         run: bundle exec steep check
       - name: unittest
-        run: rake test
+        run: bundle exec rake test
       - name: build
-        run: rake
+        run: bundle exec rake
       - name: upload artifact
         uses: actions/upload-artifact@v2.2.1
         with:
