@@ -10,6 +10,7 @@ task default: ['MSIME_dict']
 
 directory 'build'
 
+desc 'MSIME用の辞書ファイルの生成'
 task 'MSIME_dict' => 'build' do |_t|
   dest = Pathname('build/magica_ime_dict_MSIME.txt')
 
