@@ -1,0 +1,20 @@
+type atok_types = :koyujinsei | :koyujinmei | :koyujinhoka | :meishi
+
+module ATOK
+  def self.convert: (Enumerable[personal] src) -> Enumerable[Entry]
+  def self.write_file: (Enumerable[Entry] src, Pathname path) -> void
+
+  class Entry
+    attr_accessor yomi: String
+    attr_accessor kaki: String
+    attr_accessor type: atok_types
+    def initialize: (String yomi, String kaki, atok_types type_) -> void
+    def type_readable: () -> String
+    TYPE_TABLE: Hash[Symbol, String] # キーの型はatok_typesの方がよい？
+  end
+  
+  private
+
+  def self.convert_person: (personal person) -> Enumerable[Entry]
+  def self.pair_to_entry: (pair | nil pair, atok_types type_) -> Entry?
+end
