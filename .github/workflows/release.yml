@@ -56,6 +56,7 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./build/magica_ime_data_MSIME.txt
           asset_name: magica_ime_data_MSIME_${{ steps.changelog_reader.outputs.version }}.txt
+          asset_content_type: text/plain
       - name: Upload Release Asset ATOK
         uses: actions/upload-release-asset@v1
         env:
@@ -64,6 +65,7 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./build/magica_ime_data_ATOK.txt
           asset_name: magica_ime_data_ATOK_${{ steps.changelog_reader.outputs.version }}.txt
+          asset_content_type: text/plain
       - name: Upload Release Asset MAC
         uses: actions/upload-release-asset@v1
         env:
@@ -72,3 +74,4 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./build/magica_ime_data_MAC.txt
           asset_name: magica_ime_data_MAC_${{ steps.changelog_reader.outputs.version }}.txt
+          asset_content_type: text/plain
