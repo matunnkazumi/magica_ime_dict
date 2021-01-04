@@ -7,13 +7,13 @@ require_relative 'lib/dict/reader'
 require_relative 'lib/ime/ms'
 require_relative 'lib/ime/atok'
 
-task default: %w[MSIME_dict ATOK_dict]
+task default: %w[MSIME_data ATOK_data]
 
 directory 'build'
 
 desc 'MSIME用の辞書ファイルの生成'
-task 'MSIME_dict' => 'build' do |_t|
-  dest = Pathname('build/magica_ime_dict_MSIME.txt')
+task 'MSIME_data' => 'build' do |_t|
+  dest = Pathname('build/magica_ime_data_MSIME.txt')
 
   entries = puella_all_name_list
   ime_entries = MSIME.convert(entries)
@@ -22,8 +22,8 @@ task 'MSIME_dict' => 'build' do |_t|
 end
 
 desc 'ATOK用の辞書ファイルの生成'
-task 'ATOK_dict' => 'build' do |_t|
-  dest = Pathname('build/magica_ime_dict_ATOK.txt')
+task 'ATOK_data' => 'build' do |_t|
+  dest = Pathname('build/magica_ime_data_ATOK.txt')
 
   entries = puella_all_name_list
   ime_entries = ATOK.convert(entries)
