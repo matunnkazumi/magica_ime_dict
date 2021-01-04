@@ -26,17 +26,7 @@ module MSIME
   end
 
   def self.convert(src)
-    src.map do |entry|
-      result = []
-
-      sei = pair_to_entry(entry[:sei], :sei)
-      result.push(sei) unless sei.nil?
-
-      mei = pair_to_entry(entry[:mei], :mei)
-      result.push(mei) unless mei.nil?
-
-      result
-    end.flatten.uniq
+    src.map { |entry| convert_person(entry) }.flatten.uniq
   end
 
   def self.write_file(src, path)
@@ -50,6 +40,21 @@ module MSIME
       file.write "\uFEFF"
       file.puts io.string
     end
+  end
+
+  def self.convert_person(person)
+    result = []
+
+    sei = pair_to_entry(person[:sei], :sei)
+    result.push(sei) unless sei.nil?
+
+    mei = pair_to_entry(person[:mei], :mei)
+    result.push(mei) unless mei.nil?
+
+    others = person[:others]
+    result.concat(others.map { |pair| pair_to_entry(pair, :jinmei) }) unless others.nil?
+
+    result
   end
 
   def self.pair_to_entry(pair, type)
