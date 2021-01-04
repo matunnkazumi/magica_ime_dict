@@ -6,10 +6,9 @@
 
 ## [Unreleased]
 
-## [0.0.0] - 2021-00-00
+## [0.0.0] - 2021-01-04
 ### Added
-- テスト
-- テスト
+- 仕組みを一通り作成
 
 [Unreleased]: https://github.com/matunnkazumi/magica_ime_dict/compare/v0.0.0...HEAD
 [0.0.0]: https://github.com/matunnkazumi/magica_ime_dict/releases/tag/v0.0.0
