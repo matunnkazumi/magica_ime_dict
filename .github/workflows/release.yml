@@ -1,0 +1,74 @@
+#
+# release.yml
+#
+# These codes are licensed under CC0.
+# http://creativecommons.org/publicdomain/zero/1.0/deed.ja
+#
+
+name: Create Release
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2.3.4
+        with:
+          fetch-depth: 1
+      - name: setup ruby
+        uses: ruby/setup-ruby@v1.61.0
+        with:
+          bundler-cache: true
+      - name: build
+        run: bundle exec rake
+      - name: Get version from tag
+        id: tag_name
+        run: |
+          echo ::set-output name=current_version::${GITHUB_REF#refs/tags/v}
+        shell: bash
+      - name: Get Changelog Entry
+        id: changelog_reader
+        uses: mindsers/changelog-reader-action@v2
+        with:
+          version: ${{ steps.tag_name.outputs.current_version }}
+          path: ./CHANGELOG.md
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.changelog_reader.outputs.version }}
+          release_name: Release ${{ steps.changelog_reader.outputs.version }}
+          body: ${{ steps.changelog_reader.outputs.changes }}
+          draft: false
+          prerelease: false
+      - name: Upload Release Asset MSIME
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/magica_ime_data_MSIME.txt
+          asset_name: magica_ime_data_MSIME_${{ steps.changelog_reader.outputs.version }}.txt
+      - name: Upload Release Asset ATOK
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/magica_ime_data_ATOK.txt
+          asset_name: magica_ime_data_ATOK_${{ steps.changelog_reader.outputs.version }}.txt
+      - name: Upload Release Asset MAC
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/magica_ime_data_MAC.txt
+          asset_name: magica_ime_data_MAC_${{ steps.changelog_reader.outputs.version }}.txt
