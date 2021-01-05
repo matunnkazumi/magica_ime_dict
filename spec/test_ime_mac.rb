@@ -9,6 +9,22 @@ class TestImeMAC < Minitest::Test
     assert_equal '名詞', MAC::Entry.new('hoge', 'huga', :meishi).type_readable
   end
 
+  def test_convert_category_mapping
+    # @type var src: Array[personal]
+    src = [{
+      sei: { yomi: 'aaa', kaki: 'bbb' },
+      mei: { yomi: 'ccc', kaki: 'ddd' },
+      others: [{ yomi: 'eee', kaki: 'fff' }, { yomi: 'ggg', kaki: 'hhh' }]
+    }]
+
+    result = MAC.convert(src)
+
+    assert_convert_mapping result, 'aaa', 'bbb', '人名'
+    assert_convert_mapping result, 'ccc', 'ddd', '人名'
+    assert_convert_mapping result, 'eee', 'fff', '人名'
+    assert_convert_mapping result, 'ggg', 'hhh', '人名'
+  end
+
   def test_convert_uniqueness
     # @type var src: Array[personal]
     src = [
@@ -25,6 +41,11 @@ class TestImeMAC < Minitest::Test
   end
 
   private
+
+  def assert_convert_mapping(list, yomi, kaki, category)
+    f = ->(y, k, c, entry) { entry.yomi == y && entry.kaki == k && entry.type_readable == c }
+    assert list.any?(&f.curry.call(yomi, kaki, category)), "#{yomi} #{kaki} #{category}"
+  end
 
   def assert_convert_uniqueness(list, yomi, kaki, category)
     f = method(:is_same).curry.call(yomi, kaki, category)
