@@ -2,18 +2,9 @@
 
 require 'csv'
 require 'stringio'
+require_relative './collection'
 
 module MSIME
-  class Entry
-    attr_accessor :yomi, :kaki, :type
-
-    def initialize(yomi, kaki, type_)
-      @yomi = yomi
-      @kaki = kaki
-      @type = type_
-    end
-  end
-
   def self.convert(src)
     src.map { |entry| convert_person(entry) }.flatten.uniq
   end
@@ -52,6 +43,6 @@ module MSIME
     kaki = pair[:kaki]
     yomi = pair[:yomi]
 
-    Entry.new(yomi, kaki, type) unless yomi.nil?
+    ::IME::Collection::Entry.new(yomi, kaki, type) unless yomi.nil?
   end
 end

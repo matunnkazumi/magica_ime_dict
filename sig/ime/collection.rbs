@@ -1,0 +1,10 @@
+module IME
+  module Collection
+    class Entry[T]
+      attr_accessor yomi: String
+      attr_accessor kaki: String
+      attr_accessor type: T
+      def initialize: (String yomi, String kaki, T type_) -> void
+    end
+  end
+end

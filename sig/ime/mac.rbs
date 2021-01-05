@@ -1,18 +1,12 @@
 module MAC
-  def self.convert: (Enumerable[personal] src) -> Enumerable[Entry]
-  def self.write_file: (Enumerable[Entry] src, Pathname path) -> void
+  type category = '人名' | '名詞'
+  type entry = IME::Collection::Entry[category]
 
-  class Entry
-    type category ='人名' | '名詞'
-
-    attr_accessor yomi: String
-    attr_accessor kaki: String
-    attr_accessor type: category
-    def initialize: (String yomi, String kaki, category type_) -> void
-  end
+  def self.convert: (Enumerable[personal] src) -> Enumerable[entry]
+  def self.write_file: (Enumerable[entry] src, Pathname path) -> void
   
   private
 
-  def self.convert_person: (personal person) -> Enumerable[Entry]
-  def self.pair_to_entry: (pair | nil pair, Entry::category type_) -> Entry?
+  def self.convert_person: (personal person) -> Enumerable[entry]
+  def self.pair_to_entry: (pair | nil pair, category type_) -> entry?
 end
