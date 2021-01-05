@@ -12,15 +12,6 @@ module MAC
       @kaki = kaki
       @type = type_
     end
-
-    TYPE_TABLE = {
-      jinmei: '人名',
-      meishi: '名詞'
-    }.freeze
-
-    def type_readable
-      TYPE_TABLE[type]
-    end
   end
 
   def self.convert(src)
@@ -31,7 +22,7 @@ module MAC
     io = StringIO.new
     csv = CSV.new(io)
     src.each do |entry|
-      csv << [entry.yomi, entry.kaki, entry.type_readable]
+      csv << [entry.yomi, entry.kaki, entry.type]
     end
 
     path.open('wb') do |file|
@@ -42,14 +33,14 @@ module MAC
   def self.convert_person(person)
     result = []
 
-    sei = pair_to_entry(person[:sei], :jinmei)
+    sei = pair_to_entry(person[:sei], '人名')
     result.push(sei) unless sei.nil?
 
-    mei = pair_to_entry(person[:mei], :jinmei)
+    mei = pair_to_entry(person[:mei], '人名')
     result.push(mei) unless mei.nil?
 
     others = person[:others]
-    result.concat(others.map { |pair| pair_to_entry(pair, :jinmei) }) unless others.nil?
+    result.concat(others.map { |pair| pair_to_entry(pair, '人名') }) unless others.nil?
 
     result
   end

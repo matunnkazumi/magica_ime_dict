@@ -4,13 +4,6 @@ require 'minitest/autorun'
 require_relative '../lib/ime/atok'
 
 class TestImeATOK < Minitest::Test
-  def test_type_readable
-    assert_equal '固有人姓', ATOK::Entry.new('hoge', 'huga', :koyujinsei).type_readable
-    assert_equal '固有人名', ATOK::Entry.new('hoge', 'huga', :koyujinmei).type_readable
-    assert_equal '固有人他', ATOK::Entry.new('hoge', 'huga', :koyujinhoka).type_readable
-    assert_equal '名詞', ATOK::Entry.new('hoge', 'huga', :meishi).type_readable
-  end
-
   def test_convert_category_mapping
     # @type var src: Array[personal]
     src = [{
@@ -37,17 +30,17 @@ class TestImeATOK < Minitest::Test
 
     result = ATOK.convert(src)
 
-    assert_convert_uniqueness result, 'aaa', 'bbb', :koyujinsei
-    assert_convert_uniqueness result, 'ccc', 'ddd', :koyujinmei
-    assert_convert_uniqueness result, 'eee', 'fff', :koyujinsei
-    assert_convert_uniqueness result, 'eee', 'fff', :koyujinmei
+    assert_convert_uniqueness result, 'aaa', 'bbb', '固有人姓'
+    assert_convert_uniqueness result, 'ccc', 'ddd', '固有人名'
+    assert_convert_uniqueness result, 'eee', 'fff', '固有人姓'
+    assert_convert_uniqueness result, 'eee', 'fff', '固有人名'
   end
 
   private
 
   def assert_convert_mapping(list, yomi, kaki, category)
-    f = ->(y, k, c, entry) { entry.yomi == y && entry.kaki == k && entry.type_readable == c }
-    assert list.any?(&f.curry.call(yomi, kaki, category)), "#{yomi} #{kaki} #{category}"
+    f = method(:is_same).curry.call(yomi, kaki, category)
+    assert list.any?(&f), "#{yomi} #{kaki} #{category}"
   end
 
   def assert_convert_uniqueness(list, yomi, kaki, category)

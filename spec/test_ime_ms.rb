@@ -4,13 +4,6 @@ require 'minitest/autorun'
 require_relative '../lib/ime/ms'
 
 class TestImeMS < Minitest::Test
-  def test_type_readable
-    assert_equal '姓', MSIME::Entry.new('hoge', 'huga', :sei).type_readable
-    assert_equal '名', MSIME::Entry.new('hoge', 'huga', :mei).type_readable
-    assert_equal '人名', MSIME::Entry.new('hoge', 'huga', :jinmei).type_readable
-    assert_equal '名詞', MSIME::Entry.new('hoge', 'huga', :meishi).type_readable
-  end
-
   def test_convert_category_mapping
     # @type var src: Array[personal]
     src = [{
@@ -37,17 +30,17 @@ class TestImeMS < Minitest::Test
 
     result = MSIME.convert(src)
 
-    assert_convert_uniqueness result, 'aaa', 'bbb', :sei
-    assert_convert_uniqueness result, 'ccc', 'ddd', :mei
-    assert_convert_uniqueness result, 'eee', 'fff', :sei
-    assert_convert_uniqueness result, 'eee', 'fff', :mei
+    assert_convert_uniqueness result, 'aaa', 'bbb', '姓'
+    assert_convert_uniqueness result, 'ccc', 'ddd', '名'
+    assert_convert_uniqueness result, 'eee', 'fff', '姓'
+    assert_convert_uniqueness result, 'eee', 'fff', '名'
   end
 
   private
 
   def assert_convert_mapping(list, yomi, kaki, category)
-    f = ->(y, k, c, entry) { entry.yomi == y && entry.kaki == k && entry.type_readable == c }
-    assert list.any?(&f.curry.call(yomi, kaki, category)), "#{yomi} #{kaki} #{category}"
+    f = method(:is_same).curry.call(yomi, kaki, category)
+    assert list.any?(&f), "#{yomi} #{kaki} #{category}"
   end
 
   def assert_convert_uniqueness(list, yomi, kaki, category)

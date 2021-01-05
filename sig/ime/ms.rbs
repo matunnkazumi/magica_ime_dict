@@ -1,20 +1,18 @@
-type msime_types = :sei | :mei | :jinmei | :meishi
-
 module MSIME
   def self.convert: (Enumerable[personal] src) -> Enumerable[Entry]
   def self.write_file: (Enumerable[Entry] src, Pathname path) -> void
 
   class Entry
+    type category = '姓' | '名' | '人名' | '名詞'
+
     attr_accessor yomi: String
     attr_accessor kaki: String
-    attr_accessor type: msime_types
-    def initialize: (String yomi, String kaki, msime_types type_) -> void
-    def type_readable: () -> String
-    TYPE_TABLE: Hash[Symbol, String] # キーの型はmsime_typesの方がよい？
+    attr_accessor type: category
+    def initialize: (String yomi, String kaki, category type_) -> void
   end
   
   private
 
   def self.convert_person: (personal person) -> Enumerable[Entry]
-  def self.pair_to_entry: (pair | nil pair, msime_types type_) -> Entry?
+  def self.pair_to_entry: (pair | nil pair, Entry::category type_) -> Entry?
 end
