@@ -48,7 +48,7 @@ class TestImeMS < Minitest::Test
     assert_equal 1, list.select(&f).count, "#{yomi} #{kaki} #{category}"
   end
 
-  def is_same(yomi, kaki, type, entry)
-    entry.yomi == yomi && entry.kaki == kaki && entry.type == type
+  def is_same(yomi, kaki, category, entry)
+    entry.yomi == yomi && entry.kaki == kaki && entry.category == category
   end
 end

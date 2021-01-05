@@ -3,12 +3,12 @@
 module IME
   module Collection
     class Entry
-      attr_accessor :yomi, :kaki, :type
+      attr_accessor :yomi, :kaki, :category
 
-      def initialize(yomi, kaki, type_)
+      def initialize(yomi, kaki, category)
         @yomi = yomi
         @kaki = kaki
-        @type = type_
+        @category = category
       end
     end
   end

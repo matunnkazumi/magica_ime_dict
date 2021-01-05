@@ -13,7 +13,7 @@ module ATOK
     io = StringIO.new
     csv = CSV.new(io, col_sep: "\t", row_sep: "\r\n")
     src.each do |entry|
-      csv << [entry.yomi, entry.kaki, entry.type]
+      csv << [entry.yomi, entry.kaki, entry.category]
     end
 
     path.open('wb:UTF-16LE:UTF-8') do |file|
@@ -38,12 +38,12 @@ module ATOK
     result
   end
 
-  def self.pair_to_entry(pair, type)
+  def self.pair_to_entry(pair, category)
     return if pair.nil?
 
     kaki = pair[:kaki]
     yomi = pair[:yomi]
 
-    ::IME::Collection::Entry.new(yomi, kaki, type) unless yomi.nil?
+    ::IME::Collection::Entry.new(yomi, kaki, category) unless yomi.nil?
   end
 end

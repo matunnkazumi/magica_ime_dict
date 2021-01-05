@@ -3,8 +3,8 @@ module IME
     class Entry[T]
       attr_accessor yomi: String
       attr_accessor kaki: String
-      attr_accessor type: T
-      def initialize: (String yomi, String kaki, T type_) -> void
+      attr_accessor category: T
+      def initialize: (String yomi, String kaki, T category) -> void
     end
   end
 end

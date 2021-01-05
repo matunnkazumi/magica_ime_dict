@@ -8,5 +8,5 @@ module MAC
   private
 
   def self.convert_person: (personal person) -> Enumerable[entry]
-  def self.pair_to_entry: (pair | nil pair, category type_) -> entry?
+  def self.pair_to_entry: (pair | nil pair, category category) -> entry?
 end
