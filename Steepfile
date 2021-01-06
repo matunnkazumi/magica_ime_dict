@@ -8,14 +8,20 @@
 target :lib do
   signature 'sig'
 
-  # Directory name
   check 'lib'
 
-  # File name
-  # check "Gemfile"
-  # check "Rakefile"
-
   library 'pathname', 'csv', 'forwardable'
+end
+
+target :settings do
+  signature 'sig'
+
+  check 'Gemfile'
+  check 'Rakefile'
+
+  library 'pathname'
+
+  typing_options :lenient
 end
 
 target :spec do
