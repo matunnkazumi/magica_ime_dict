@@ -2,29 +2,9 @@
 
 require 'csv'
 require 'stringio'
+require_relative './collection'
 
 module MSIME
-  class Entry
-    attr_accessor :yomi, :kaki, :type
-
-    def initialize(yomi, kaki, type_)
-      @yomi = yomi
-      @kaki = kaki
-      @type = type_
-    end
-
-    TYPE_TABLE = {
-      sei: '姓',
-      mei: '名',
-      jinmei: '人名',
-      meishi: '名詞'
-    }.freeze
-
-    def type_readable
-      TYPE_TABLE[type]
-    end
-  end
-
   def self.convert(src)
     src.map { |entry| convert_person(entry) }.flatten.uniq
   end
@@ -33,7 +13,7 @@ module MSIME
     io = StringIO.new
     csv = CSV.new(io, col_sep: "\t", row_sep: "\r\n")
     src.each do |entry|
-      csv << [entry.yomi, entry.kaki, entry.type_readable]
+      csv << [entry.yomi, entry.kaki, entry.category]
     end
 
     path.open('wb:UTF-16LE:UTF-8') do |file|
@@ -45,24 +25,24 @@ module MSIME
   def self.convert_person(person)
     result = []
 
-    sei = pair_to_entry(person[:sei], :sei)
+    sei = pair_to_entry(person[:sei], '姓')
     result.push(sei) unless sei.nil?
 
-    mei = pair_to_entry(person[:mei], :mei)
+    mei = pair_to_entry(person[:mei], '名')
     result.push(mei) unless mei.nil?
 
     others = person[:others]
-    result.concat(others.map { |pair| pair_to_entry(pair, :jinmei) }) unless others.nil?
+    result.concat(others.map { |pair| pair_to_entry(pair, '人名') }) unless others.nil?
 
     result
   end
 
-  def self.pair_to_entry(pair, type)
+  def self.pair_to_entry(pair, category)
     return if pair.nil?
 
     kaki = pair[:kaki]
     yomi = pair[:yomi]
 
-    Entry.new(yomi, kaki, type) unless yomi.nil?
+    ::IME::Collection::Entry.new(yomi, kaki, category) unless yomi.nil?
   end
 end
