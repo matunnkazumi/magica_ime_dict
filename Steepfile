@@ -30,5 +30,6 @@ target :spec do
   check 'spec'
 
   library 'pathname'
+
   typing_options :lenient
 end
