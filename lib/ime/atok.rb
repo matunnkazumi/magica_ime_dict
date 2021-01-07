@@ -32,8 +32,8 @@ module ATOK
     mei = pair_to_entry(person[:mei], '固有人名')
     result.push(mei) unless mei.nil?
 
-    others = person[:others]
-    result.concat(others.map { |pair| pair_to_entry(pair, '固有人他') }) unless others.nil?
+    sonota = person[:sonota]
+    result.concat(sonota.map { |pair| pair_to_entry(pair, '固有人他') }) unless sonota.nil?
 
     result
   end

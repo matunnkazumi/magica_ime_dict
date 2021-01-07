@@ -1,5 +1,5 @@
 type pair = { kaki: String, yomi: String | nil }
-type personal = { sei: pair | nil, mei: pair | nil, others: Array[pair] | nil }
+type personal = { sei: pair | nil, mei: pair | nil, sonota: Array[pair] | nil }
 type result = Array[personal]
 
 class Reader

@@ -13,7 +13,7 @@
         "description": "名前",
         "$ref": "#/definitions/pair"
       },
-      "others": {
+      "sonota": {
         "description": "その他",
         "type": "array",
         "items": {
