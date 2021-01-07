@@ -9,7 +9,7 @@ name: snapshot
 on:
   push:
     branches:
-      - add_snapshot_workflow
+      - master
 
 jobs:
   snapshot:
