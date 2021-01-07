@@ -32,4 +32,5 @@ jobs:
           REPO: self
           BRANCH: snapshot
           FOLDER: build
+          MESSAGE: "snapshot for {sha}\n---\n{msg}"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
