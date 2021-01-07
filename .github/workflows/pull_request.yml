@@ -5,14 +5,14 @@
 # http://creativecommons.org/publicdomain/zero/1.0/deed.ja
 #
 
-name: for pull request
+name: check
 on:
   pull_request:
     types: [opened, synchronize]
 
 jobs:
   check_and_build:
-    name: Pull Request
+    name: lint/typecheck/unittest/build
     runs-on: ubuntu-latest
     steps:
       - name: checkout
