@@ -5,7 +5,7 @@
 このプロジェクトは [Semantic Versioning](https://semver.org/spec/v2.0.0.html) に従います。
 
 ## [Unreleased]
-## [0.0.1] - 2021-01-07\
+## [0.0.1] - 2021-01-07
 ### Added
 - かずみ☆マギカ 対応
 - おりこ☆マギカ 対応
