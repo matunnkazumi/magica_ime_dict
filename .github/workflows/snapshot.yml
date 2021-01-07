@@ -1,0 +1,36 @@
+#
+# snapshot.yml
+#
+# These codes are licensed under CC0.
+# http://creativecommons.org/publicdomain/zero/1.0/deed.ja
+#
+
+name: snapshot
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  snapshot:
+    name: Pull Request
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2.3.4
+        with:
+          fetch-depth: 1
+      - name: setup ruby
+        uses: ruby/setup-ruby@v1.61.0
+        with:
+          bundler-cache: true
+      - name: build
+        run: bundle exec rake
+      - name: snapshot
+        uses: s0/git-publish-subdir-action@v2.4.0
+        env:
+          REPO: self
+          BRANCH: snapshot
+          FOLDER: build
+          MESSAGE: "snapshot for {sha}\n---\n{msg}"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
