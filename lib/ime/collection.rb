@@ -3,7 +3,7 @@
 module IME
   module Collection
     class Entry
-      attr_accessor :yomi, :kaki, :category
+      attr_reader :yomi, :kaki, :category
 
       def initialize(yomi, kaki, category)
         @yomi = yomi
