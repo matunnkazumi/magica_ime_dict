@@ -5,7 +5,7 @@
 # http://creativecommons.org/publicdomain/zero/1.0/deed.ja
 #
 
-name: Create Release
+name: release
 on:
   push:
     tags:
@@ -48,30 +48,13 @@ jobs:
           body: ${{ steps.changelog_reader.outputs.changes }}
           draft: false
           prerelease: false
-      - name: Upload Release Asset MSIME
-        uses: actions/upload-release-asset@v1
+      - name: rename files to add version
+        run: rename.ul .txt _v${{ steps.changelog_reader.outputs.version }}.txt build/*.txt
+      - name: Upload Release Assets
+        uses: alexellis/upload-assets@0.2.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./build/magica_ime_data_MSIME.txt
-          asset_name: magica_ime_data_MSIME_v${{ steps.changelog_reader.outputs.version }}.txt
-          asset_content_type: text/plain
-      - name: Upload Release Asset ATOK
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./build/magica_ime_data_ATOK.txt
-          asset_name: magica_ime_data_ATOK_v${{ steps.changelog_reader.outputs.version }}.txt
-          asset_content_type: text/plain
-      - name: Upload Release Asset MAC
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./build/magica_ime_data_MAC.txt
-          asset_name: magica_ime_data_MAC_v${{ steps.changelog_reader.outputs.version }}.txt
+          asset_paths: '["./build/*"]'
           asset_content_type: text/plain
