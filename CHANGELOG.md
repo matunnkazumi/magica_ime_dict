@@ -14,6 +14,6 @@
 ### Added
 - 仕組みを一通り作成
 
-[Unreleased]: https://github.com/matunnkazumi/magica_ime_dict/compare/v0.0.0...HEAD
+[Unreleased]: https://github.com/matunnkazumi/magica_ime_dict/compare/v0.0.1...HEAD
 [0.0.1]: https://github.com/matunnkazumi/magica_ime_dict/compare/v0.0.0...v0.0.1
 [0.0.0]: https://github.com/matunnkazumi/magica_ime_dict/releases/tag/v0.0.0
