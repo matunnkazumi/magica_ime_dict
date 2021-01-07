@@ -5,7 +5,7 @@
 # http://creativecommons.org/publicdomain/zero/1.0/deed.ja
 #
 
-name: Create Release
+name: release
 on:
   push:
     tags:
