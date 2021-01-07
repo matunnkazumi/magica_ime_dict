@@ -9,7 +9,7 @@ class TestImeMS < Minitest::Test
     src = [{
       sei: { yomi: 'aaa', kaki: 'bbb' },
       mei: { yomi: 'ccc', kaki: 'ddd' },
-      others: [{ yomi: 'eee', kaki: 'fff' }, { yomi: 'ggg', kaki: 'hhh' }]
+      sonota: [{ yomi: 'eee', kaki: 'fff' }, { yomi: 'ggg', kaki: 'hhh' }]
     }]
 
     result = MSIME.convert(src)
