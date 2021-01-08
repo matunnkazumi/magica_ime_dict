@@ -26,6 +26,13 @@ jobs:
           bundler-cache: true
       - name: build
         run: bundle exec rake
+      - name: gitattributes
+        run: | 
+          cat <<EOF > build/.gitattributes
+          magica_ime_data_MSIME.txt encoding=UTF-16LE-BOM eol=crlf
+          magica_ime_data_ATOK.txt encoding=UTF-16LE-BOM eol=crlf
+          magica_ime_data_MAC.txt encoding=UTF-8 eol=lf
+          EOF
       - name: snapshot
         uses: s0/git-publish-subdir-action@v2.4.0
         env:
