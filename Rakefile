@@ -9,7 +9,7 @@ require_relative 'lib/ime/atok'
 require_relative 'lib/ime/mac'
 require_relative 'lib/ime/google'
 
-task default: %w[MSIME_data ATOK_data MAC_data Google_data]
+task default: %w[MSIME_data ATOK_data Mac_data Google_data]
 
 directory 'build'
 
@@ -33,9 +33,9 @@ task 'ATOK_data' => 'build' do |_t|
   IME::ATOK.write_file(ime_entries, dest)
 end
 
-desc 'MAC用の辞書ファイルの生成'
-task 'MAC_data' => 'build' do |_t|
-  dest = Pathname('build/magica_ime_data_MAC.txt')
+desc 'Mac用の辞書ファイルの生成'
+task 'Mac_data' => 'build' do |_t|
+  dest = Pathname('build/magica_ime_data_Mac.txt')
 
   entries = puella_all_name_list
   ime_entries = IME::MAC.convert(entries)
