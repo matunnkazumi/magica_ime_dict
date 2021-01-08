@@ -3,7 +3,7 @@
 require 'minitest/autorun'
 require 'pathname'
 require 'tempfile'
-require_relative '../lib/changelog/changelog'
+require_relative '../../lib/changelog/changelog'
 
 class TestChangeLog < Minitest::Test
   TEST_DATA = <<~CHANGELOG
