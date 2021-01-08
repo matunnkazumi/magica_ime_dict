@@ -7,8 +7,9 @@ require_relative 'lib/dict/reader'
 require_relative 'lib/ime/ms'
 require_relative 'lib/ime/atok'
 require_relative 'lib/ime/mac'
+require_relative 'lib/ime/google'
 
-task default: %w[MSIME_data ATOK_data MAC_data]
+task default: %w[MSIME_data ATOK_data MAC_data Google_data]
 
 directory 'build'
 
@@ -40,6 +41,16 @@ task 'MAC_data' => 'build' do |_t|
   ime_entries = IME::MAC.convert(entries)
 
   IME::MAC.write_file(ime_entries, dest)
+end
+
+desc 'Google日本語入力用の辞書ファイルの生成'
+task 'Google_data' => 'build' do |_t|
+  dest = Pathname('build/magica_ime_data_GoogleIME.txt')
+
+  entries = puella_all_name_list
+  ime_entries = IME::GoogleIME.convert(entries)
+
+  IME::GoogleIME.write_file(ime_entries, dest)
 end
 
 def puella_all_name_list
