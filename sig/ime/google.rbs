@@ -1,0 +1,14 @@
+module IME
+  module GoogleIME
+    type category = '姓' | '名' | '人名' | '名詞'
+    type entry = IME::Collection::Entry[category]
+
+    def self.convert: (Enumerable[personal] src) -> Enumerable[entry]
+    def self.write_file: (Enumerable[entry] src, Pathname path) -> void
+
+    private
+
+    def self.convert_person: (personal person) -> Enumerable[entry]
+    def self.pair_to_entry: (pair | nil pair, category category) -> entry?
+  end
+end
