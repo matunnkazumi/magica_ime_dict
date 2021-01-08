@@ -12,7 +12,7 @@ class TestImeATOK < Minitest::Test
       sonota: [{ yomi: 'eee', kaki: 'fff' }, { yomi: 'ggg', kaki: 'hhh' }]
     }]
 
-    result = ATOK.convert(src)
+    result = IME::ATOK.convert(src)
 
     assert_convert_mapping result, 'aaa', 'bbb', '固有人姓'
     assert_convert_mapping result, 'ccc', 'ddd', '固有人名'
@@ -28,7 +28,7 @@ class TestImeATOK < Minitest::Test
       { sei: { yomi: 'eee', kaki: 'fff' }, mei: { yomi: 'ccc', kaki: 'ddd' } }
     ]
 
-    result = ATOK.convert(src)
+    result = IME::ATOK.convert(src)
 
     assert_convert_uniqueness result, 'aaa', 'bbb', '固有人姓'
     assert_convert_uniqueness result, 'ccc', 'ddd', '固有人名'

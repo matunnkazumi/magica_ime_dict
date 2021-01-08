@@ -12,7 +12,7 @@ class TestImeMAC < Minitest::Test
       sonota: [{ yomi: 'eee', kaki: 'fff' }, { yomi: 'ggg', kaki: 'hhh' }]
     }]
 
-    result = MAC.convert(src)
+    result = IME::MAC.convert(src)
 
     assert_convert_mapping result, 'aaa', 'bbb', '人名'
     assert_convert_mapping result, 'ccc', 'ddd', '人名'
@@ -28,7 +28,7 @@ class TestImeMAC < Minitest::Test
       { sei: { yomi: 'eee', kaki: 'fff' }, mei: { yomi: 'ccc', kaki: 'ddd' } }
     ]
 
-    result = MAC.convert(src)
+    result = IME::MAC.convert(src)
 
     assert_convert_uniqueness result, 'aaa', 'bbb', '人名'
     assert_convert_uniqueness result, 'ccc', 'ddd', '人名'
