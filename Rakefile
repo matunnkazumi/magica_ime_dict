@@ -17,9 +17,9 @@ task 'MSIME_data' => 'build' do |_t|
   dest = Pathname('build/magica_ime_data_MSIME.txt')
 
   entries = puella_all_name_list
-  ime_entries = MSIME.convert(entries)
+  ime_entries = IME::MSIME.convert(entries)
 
-  MSIME.write_file(ime_entries, dest)
+  IME::MSIME.write_file(ime_entries, dest)
 end
 
 desc 'ATOK用の辞書ファイルの生成'
@@ -27,9 +27,9 @@ task 'ATOK_data' => 'build' do |_t|
   dest = Pathname('build/magica_ime_data_ATOK.txt')
 
   entries = puella_all_name_list
-  ime_entries = ATOK.convert(entries)
+  ime_entries = IME::ATOK.convert(entries)
 
-  ATOK.write_file(ime_entries, dest)
+  IME::ATOK.write_file(ime_entries, dest)
 end
 
 desc 'MAC用の辞書ファイルの生成'
@@ -37,9 +37,9 @@ task 'MAC_data' => 'build' do |_t|
   dest = Pathname('build/magica_ime_data_MAC.txt')
 
   entries = puella_all_name_list
-  ime_entries = MAC.convert(entries)
+  ime_entries = IME::MAC.convert(entries)
 
-  MAC.write_file(ime_entries, dest)
+  IME::MAC.write_file(ime_entries, dest)
 end
 
 def puella_all_name_list

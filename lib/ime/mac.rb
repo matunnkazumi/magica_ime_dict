@@ -4,44 +4,46 @@ require 'csv'
 require 'stringio'
 require_relative './collection'
 
-module MAC
-  def self.convert(src)
-    src.map { |entry| convert_person(entry) }.flatten.uniq
-  end
-
-  def self.write_file(src, path)
-    io = StringIO.new
-    csv = CSV.new(io)
-    src.each do |entry|
-      csv << [entry.yomi, entry.kaki, entry.category]
+module IME
+  module MAC
+    def self.convert(src)
+      src.map { |entry| convert_person(entry) }.flatten.uniq
     end
 
-    path.open('wb') do |file|
-      file.puts io.string
+    def self.write_file(src, path)
+      io = StringIO.new
+      csv = CSV.new(io)
+      src.each do |entry|
+        csv << [entry.yomi, entry.kaki, entry.category]
+      end
+
+      path.open('wb') do |file|
+        file.puts io.string
+      end
     end
-  end
 
-  def self.convert_person(person)
-    result = []
+    def self.convert_person(person)
+      result = []
 
-    sei = pair_to_entry(person[:sei], '人名')
-    result.push(sei) unless sei.nil?
+      sei = pair_to_entry(person[:sei], '人名')
+      result.push(sei) unless sei.nil?
 
-    mei = pair_to_entry(person[:mei], '人名')
-    result.push(mei) unless mei.nil?
+      mei = pair_to_entry(person[:mei], '人名')
+      result.push(mei) unless mei.nil?
 
-    sonota = person[:sonota]
-    result.concat(sonota.map { |pair| pair_to_entry(pair, '人名') }) unless sonota.nil?
+      sonota = person[:sonota]
+      result.concat(sonota.map { |pair| pair_to_entry(pair, '人名') }) unless sonota.nil?
 
-    result
-  end
+      result
+    end
 
-  def self.pair_to_entry(pair, category)
-    return if pair.nil?
+    def self.pair_to_entry(pair, category)
+      return if pair.nil?
 
-    kaki = pair[:kaki]
-    yomi = pair[:yomi]
+      kaki = pair[:kaki]
+      yomi = pair[:yomi]
 
-    ::IME::Collection::Entry.new(yomi, kaki, category) unless yomi.nil?
+      ::IME::Collection::Entry.new(yomi, kaki, category) unless yomi.nil?
+    end
   end
 end

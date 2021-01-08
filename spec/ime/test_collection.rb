@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'minitest/autorun'
-require_relative '../lib/ime/collection'
+require_relative '../../lib/ime/collection'
 
 class TestImeCollection < Minitest::Test
   def test_eql

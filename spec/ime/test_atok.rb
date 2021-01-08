@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require 'minitest/autorun'
-require_relative '../lib/ime/mac'
+require_relative '../../lib/ime/atok'
 
-class TestImeMAC < Minitest::Test
+class TestImeATOK < Minitest::Test
   def test_convert_category_mapping
     # @type var src: Array[personal]
     src = [{
@@ -12,12 +12,12 @@ class TestImeMAC < Minitest::Test
       sonota: [{ yomi: 'eee', kaki: 'fff' }, { yomi: 'ggg', kaki: 'hhh' }]
     }]
 
-    result = MAC.convert(src)
+    result = IME::ATOK.convert(src)
 
-    assert_convert_mapping result, 'aaa', 'bbb', '人名'
-    assert_convert_mapping result, 'ccc', 'ddd', '人名'
-    assert_convert_mapping result, 'eee', 'fff', '人名'
-    assert_convert_mapping result, 'ggg', 'hhh', '人名'
+    assert_convert_mapping result, 'aaa', 'bbb', '固有人姓'
+    assert_convert_mapping result, 'ccc', 'ddd', '固有人名'
+    assert_convert_mapping result, 'eee', 'fff', '固有人他'
+    assert_convert_mapping result, 'ggg', 'hhh', '固有人他'
   end
 
   def test_convert_uniqueness
@@ -28,11 +28,12 @@ class TestImeMAC < Minitest::Test
       { sei: { yomi: 'eee', kaki: 'fff' }, mei: { yomi: 'ccc', kaki: 'ddd' } }
     ]
 
-    result = MAC.convert(src)
+    result = IME::ATOK.convert(src)
 
-    assert_convert_uniqueness result, 'aaa', 'bbb', '人名'
-    assert_convert_uniqueness result, 'ccc', 'ddd', '人名'
-    assert_convert_uniqueness result, 'eee', 'fff', '人名'
+    assert_convert_uniqueness result, 'aaa', 'bbb', '固有人姓'
+    assert_convert_uniqueness result, 'ccc', 'ddd', '固有人名'
+    assert_convert_uniqueness result, 'eee', 'fff', '固有人姓'
+    assert_convert_uniqueness result, 'eee', 'fff', '固有人名'
   end
 
   private
