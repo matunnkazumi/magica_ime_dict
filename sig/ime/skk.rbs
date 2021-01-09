@@ -2,6 +2,8 @@ module IME
   module SKK
     type entry = IME::Collection::Entry[nil]
 
+    SKK_FILE_HEADER: String
+
     def self.convert: (Enumerable[personal] src) -> Enumerable[entry]
     def self.write_file: (Enumerable[entry] src, Pathname path) -> void
     def self.convert_person: (personal person) -> Enumerable[entry]

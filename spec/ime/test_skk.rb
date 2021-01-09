@@ -71,6 +71,7 @@ class TestImeSKK < Minitest::Test
   TESTFILE
 
   TEST_WRITEFILE_EXPECTED = <<~TESTFILE
+    ;;; -*- coding: utf-8 -*-
     ;; okuri-nasi entries.
     aaa /bbb/ccc/
     ccc /ddd/
