@@ -49,7 +49,9 @@ jobs:
           draft: false
           prerelease: false
       - name: rename files to add version
-        run: rename.ul .txt _v${{ steps.changelog_reader.outputs.version }}.txt build/*.txt
+        run: |
+          rename.ul .txt _v${{ steps.changelog_reader.outputs.version }}.txt build/*.txt
+          mv build/SKK-JISYO.magica build/SKK-JISYO.magica.v${{ steps.changelog_reader.outputs.version }}
       - name: Upload Release Assets
         uses: alexellis/upload-assets@0.2.2
         env:
