@@ -22,8 +22,8 @@ module IME
           .group_by(&:yomi)
           .transform_values { |value| value.map(&:kaki).join('/') }
           .sort
-          .each do |(yomi, kaki)|
-            file.puts "#{yomi} \/#{kaki}\/"
+          .each do |a|
+            file.puts "#{a[0]} \/#{a[1]}\/"
           end
       end
     end
