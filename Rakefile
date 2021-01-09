@@ -8,8 +8,9 @@ require_relative 'lib/ime/ms'
 require_relative 'lib/ime/atok'
 require_relative 'lib/ime/mac'
 require_relative 'lib/ime/google'
+require_relative 'lib/ime/skk'
 
-task default: %w[MSIME_data ATOK_data Mac_data Google_data]
+task default: %w[MSIME_data ATOK_data Mac_data Google_data SKK_data]
 
 directory 'build'
 
@@ -51,6 +52,16 @@ task 'Google_data' => 'build' do |_t|
   ime_entries = IME::GoogleIME.convert(entries)
 
   IME::GoogleIME.write_file(ime_entries, dest)
+end
+
+desc 'SKK用の辞書ファイルの生成'
+task 'SKK_data' => 'build' do |_t|
+  dest = Pathname('build/SKK-JISYO.magica')
+
+  entries = puella_all_name_list
+  ime_entries = IME::SKK.convert(entries)
+
+  IME::SKK.write_file(ime_entries, dest)
 end
 
 def puella_all_name_list
