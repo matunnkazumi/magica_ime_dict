@@ -16,6 +16,7 @@ module IME
 
     def self.write_file(src, path)
       path.open('wb') do |file|
+        file.puts ';;; -*- coding: utf-8 -*-'
         file.puts ';; okuri-nasi entries.'
 
         src
