@@ -33,6 +33,7 @@ jobs:
           magica_ime_data_ATOK.txt encoding=UTF-16LE-BOM eol=crlf
           magica_ime_data_Mac.txt encoding=UTF-8 eol=lf
           magica_ime_data_GoogleIME.txt encoding=UTF-8 eol=crlf
+          SKK-JISYO.magica encoding=UTF-8 eol=lf
           EOF
       - name: snapshot
         uses: s0/git-publish-subdir-action@v2.4.0
