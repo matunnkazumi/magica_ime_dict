@@ -14,10 +14,14 @@ module IME
         .uniq
     end
 
+    SKK_FILE_HEADER = <<~HEADER
+      ;;; -*- coding: utf-8 -*-
+      ;; okuri-nasi entries.
+    HEADER
+
     def self.write_file(src, path)
       path.open('wb') do |file|
-        file.puts ';;; -*- coding: utf-8 -*-'
-        file.puts ';; okuri-nasi entries.'
+        file.write SKK_FILE_HEADER
 
         src
           .group_by(&:yomi)
