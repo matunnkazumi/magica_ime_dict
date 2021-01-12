@@ -11,8 +11,9 @@
 ネタバレ等にはお気をつけてご利用ください。
 
 ## ダウンロード
-以下のリンクから、ご利用の日本語変換に合わせたユーザー辞書ファイルをダウンロードしてください。
-- [GitHub Release](https://github.com/matunnkazumi/magica_ime_dict/releases)
+[GitHub Release](https://github.com/matunnkazumi/magica_ime_dict/releases)
+
+上記リンクから、ご利用の日本語変換に合わせたユーザー辞書ファイルをダウンロードしてください。
 
 ※ Mac向けファイルは実験的なものです。製作者はMacを持ってませんので動作確認出来ていません。フィードバックをお待ちしております。
 
