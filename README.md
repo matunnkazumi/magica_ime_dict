@@ -17,11 +17,11 @@
 
 ※ Mac向けファイルは実験的なものです。製作者はMacを持ってませんので動作確認出来ていません。フィードバックをお待ちしております。
 
+## 更新履歴
+[CHANGELOG](CHANGELOG.md)
+
 ## ライセンス
 特に表記が無いファイルは [MIT License](https://spdx.org/licenses/MIT.html) です。
-
-## 変更履歴
-[CHANGELOG](CHANGELOG.md)
 
 ## 不具合報告・要望 など
 [GitHub Issue](https://github.com/matunnkazumi/magica_ime_dict/issues)　もしくは [@matunnkazumi](https://twitter.com/matunnkazumi) まで
