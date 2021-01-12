@@ -8,18 +8,18 @@
 
 これは、魔法少女まどか☆マギカとその関連作品の魔法少女名を収録した、IMEユーザー辞書データを作成するリポジトリです。
 
+## ダウンロード
+以下のリンクから、ご利用の日本語変換に合わせたファイルをダウンロードしてください。
+- [GitHub Release](https://github.com/matunnkazumi/magica_ime_dict/releases)
+
+※ Mac向けファイルは実験的なものです。製作者はMacを持ってませんので動作確認出来ていません。フィードバックをお待ちしております。
+
 ## ライセンス
 特に表記が無いファイルは MIT License です。
 
 ## 変更履歴
 
 [CHANGELOG](CHANGELOG.md)
-
-## ダウンロード
-以下のリンクから、ご利用の日本語変換に合わせたファイルをダウンロードしてください。
-- [GitHub Release](https://github.com/matunnkazumi/magica_ime_dict/releases)
-
-※ Mac向けファイルは実験的なものです。製作者はMacを持ってませんので動作確認出来ていません。フィードバックをお待ちしております。
 
 ## 不具合報告・要望 など
 [GitHub Issue](https://github.com/matunnkazumi/magica_ime_dict/issues)　もしくは [@matunnkazumi](https://twitter.com/matunnkazumi) まで
