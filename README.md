@@ -6,7 +6,7 @@
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-community-brightgreen.svg)](https://rubystyle.guide)
 [![Keep a Changelog](https://img.shields.io/badge/changelog-Keep%20a%20Changelog%20v1.0.0-%23E05735)](./CHANGELOG.md)
 
-これは、魔法少女まどか☆マギカとその関連作品の魔法少女名を収録した、IMEユーザー辞書データを作成するリポジトリです。
+これは、魔法少女まどか☆マギカとその関連作品の魔法少女名を収録した、ファンメイドIMEユーザー辞書データを作成するリポジトリです。
 
 ネタバレ等にはお気をつけてご利用ください。
 
