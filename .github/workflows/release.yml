@@ -26,13 +26,6 @@ jobs:
           bundler-cache: true
       - name: build
         run: bundle exec rake
-      - name: rename files to add version
-        run: |
-          rename.ul .txt _v${{ steps.changelog_reader.outputs.version }}.txt build/*.txt
-          mv build/SKK-JISYO.magica build/SKK-JISYO.magica.v${{ steps.changelog_reader.outputs.version }}
-      - name: list upload_url
-        run: |
-          ls ./build/*
       - name: Get version from tag
         id: tag_name
         run: |
@@ -44,6 +37,13 @@ jobs:
         with:
           version: ${{ steps.tag_name.outputs.current_version }}
           path: ./CHANGELOG.md
+      - name: rename files to add version
+        run: |
+          rename.ul .txt _v${{ steps.changelog_reader.outputs.version }}.txt build/*.txt
+          mv build/SKK-JISYO.magica build/SKK-JISYO.magica.v${{ steps.changelog_reader.outputs.version }}
+      - name: list upload_url
+        run: |
+          ls ./build/*
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
