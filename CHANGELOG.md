@@ -5,6 +5,8 @@
 このプロジェクトは [Semantic Versioning](https://semver.org/spec/v2.0.0.html) に従います。
 
 ## [Unreleased]
+
+## [1.0.0] - 2021-01-14
 ### Added
 - 魔法少女名を一通り追加
 - ユーザー辞書形式の対応を追加
@@ -13,5 +15,6 @@
 ### Added
 - 仕組みを一通り作成
 
-[Unreleased]: https://github.com/matunnkazumi/magica_ime_dict/compare/v0.0.0...HEAD
+[Unreleased]: https://github.com/matunnkazumi/magica_ime_dict/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/matunnkazumi/magica_ime_dict/compare/v0.0.0...v1.0.0
 [0.0.0]: https://github.com/matunnkazumi/magica_ime_dict/releases/tag/v0.0.0
