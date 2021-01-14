@@ -37,6 +37,13 @@ jobs:
         with:
           version: ${{ steps.tag_name.outputs.current_version }}
           path: ./CHANGELOG.md
+      - name: rename files to add version
+        run: |
+          rename.ul .txt _v${{ steps.changelog_reader.outputs.version }}.txt build/*.txt
+          mv build/SKK-JISYO.magica build/SKK-JISYO.magica.v${{ steps.changelog_reader.outputs.version }}
+      - name: list build files
+        run: |
+          ls ./build/*
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -48,10 +55,6 @@ jobs:
           body: ${{ steps.changelog_reader.outputs.changes }}
           draft: false
           prerelease: false
-      - name: rename files to add version
-        run: |
-          rename.ul .txt _v${{ steps.changelog_reader.outputs.version }}.txt build/*.txt
-          mv build/SKK-JISYO.magica build/SKK-JISYO.magica.v${{ steps.changelog_reader.outputs.version }}
       - name: Upload Release Assets
         uses: alexellis/upload-assets@0.2.2
         env:
