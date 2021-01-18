@@ -5,6 +5,9 @@
 このプロジェクトは [Semantic Versioning](https://semver.org/spec/v2.0.0.html) に従います。
 
 ## [Unreleased]
+### Added
+- 神楽燦 追加
+- 遊狩ミユリ 追加
 
 ## [1.0.0] - 2021-01-14
 ### Added
