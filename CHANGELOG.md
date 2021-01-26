@@ -5,6 +5,8 @@
 このプロジェクトは [Semantic Versioning](https://semver.org/spec/v2.0.0.html) に従います。
 
 ## [Unreleased]
+### Added
+- 霞壱華 追加
 
 ## [1.1.0] - 2021-01-19
 ### Added
