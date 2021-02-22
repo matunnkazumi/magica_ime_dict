@@ -5,6 +5,8 @@
 このプロジェクトは [Semantic Versioning](https://semver.org/spec/v2.0.0.html) に従います。
 
 ## [Unreleased]
+
+## [1.3.0] - 2021-02-22
 ### Added
 - アシュリー・テイラー 追加
 
@@ -27,7 +29,8 @@
 ### Added
 - 仕組みを一通り作成
 
-[Unreleased]: https://github.com/matunnkazumi/magica_ime_dict/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/matunnkazumi/magica_ime_dict/compare/v1.3.0...HEAD
+[1.3.0]: https://github.com/matunnkazumi/magica_ime_dict/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/matunnkazumi/magica_ime_dict/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/matunnkazumi/magica_ime_dict/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/matunnkazumi/magica_ime_dict/compare/v0.0.0...v1.0.0
