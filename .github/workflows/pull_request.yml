@@ -24,6 +24,8 @@ jobs:
         with:
           bundler-cache: true
       - name: format check
+        run: git config core.autocrlf
+      - name: format check
         run: bundle exec rubocop
       - name: type check
         run: bundle exec steep check
