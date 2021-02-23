@@ -26,6 +26,8 @@ jobs:
           bundler-cache: true
       - name: build
         run: bundle exec rake
+      - name: disable auto crlf
+        run: git config core.autocrlf false
       - name: gitattributes
         run: | 
           cat <<EOF > build/.gitattributes
