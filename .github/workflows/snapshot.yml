@@ -14,7 +14,7 @@ on:
 jobs:
   snapshot:
     name: build and save snapshot
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: checkout
         uses: actions/checkout@v2.3.4
