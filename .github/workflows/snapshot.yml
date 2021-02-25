@@ -29,11 +29,11 @@ jobs:
       - name: gitattributes
         run: | 
           cat <<EOF > build/.gitattributes
-          magica_ime_data_MSIME.txt encoding=UTF-16LE working-tree-encoding=UTF-16LE-BOM
-          magica_ime_data_ATOK.txt encoding=UTF-16LE working-tree-encoding=UTF-16LE-BOM
-          magica_ime_data_Mac.txt encoding=UTF-8 working-tree-encoding=UTF-8
-          magica_ime_data_GoogleIME.txt encoding=UTF-8 working-tree-encoding=UTF-8
-          SKK-JISYO.magica encoding=UTF-8 working-tree-encoding=UTF-8
+          magica_ime_data_MSIME.txt working-tree-encoding=UTF-16LE-BOM eol=crlf
+          magica_ime_data_ATOK.txt working-tree-encoding=UTF-16LE-BOM eol=crlf
+          magica_ime_data_Mac.txt working-tree-encoding=UTF-8 eol=lf
+          magica_ime_data_GoogleIME.txt working-tree-encoding=UTF-8 eol=crlf
+          SKK-JISYO.magica working-tree-encoding=UTF-8 eol=lf
           EOF
       - name: snapshot
         uses: s0/git-publish-subdir-action@v2.4.0
