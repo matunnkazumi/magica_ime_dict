@@ -5,15 +5,23 @@
   "yaml.hover": true,
   "yaml.schemas": {
     "./schema/namelist.json": [
-      "./data/madoka/puella.yaml",
-      "./data/kazumi/puella.yaml",
-      "./data/oriko/puella.yaml",
-      "./data/suzune/puella.yaml",
-      "./data/tart/puella.yaml",
-      "./data/magireco/puella.yaml"
+      "/data/madoka/puella.yaml",
+      "/data/kazumi/puella.yaml",
+      "/data/oriko/puella.yaml",
+      "/data/suzune/puella.yaml",
+      "/data/tart/puella.yaml",
+      "/data/magireco/puella.yaml"
     ],
-    "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/github-action.json": [
-      "./github/workflows/*.yml"
+    "https://json.schemastore.org/github-action": [
+      "/github/workflows/*.yml"
     ],
-  }
+  },
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "/schema/namelist.json"
+      ],
+      "url": "https://json-schema.org/draft-07/schema"
+    }
+  ]
 }
