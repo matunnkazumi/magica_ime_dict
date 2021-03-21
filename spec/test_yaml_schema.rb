@@ -41,9 +41,11 @@ class YamlSchemaValidation < Minitest::Test
       .reject { |schema_file| schema_file.start_with?('https://') }
       .transform_keys { |schema_file| Pathname(schema_file) }
       .transform_keys { |pathname| JSONSchemer.schema(pathname) }
-      .transform_values do |values|
-        values.map { |file| file[0] == '/' ? file[1..] : file }
-      end
+      .transform_values(&method(:extract))
+  end
+
+  def extract(values)
+    values.map { |file| file[0] == '/' ? file[1..] : file }
   end
 
   PATTERN_YOMI = /^[\p{Hiragana}ー]+$/
