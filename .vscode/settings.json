@@ -5,15 +5,15 @@
   "yaml.hover": true,
   "yaml.schemas": {
     "./schema/namelist.json": [
-      "./data/madoka/puella.yaml",
-      "./data/kazumi/puella.yaml",
-      "./data/oriko/puella.yaml",
-      "./data/suzune/puella.yaml",
-      "./data/tart/puella.yaml",
-      "./data/magireco/puella.yaml"
+      "/data/madoka/puella.yaml",
+      "/data/kazumi/puella.yaml",
+      "/data/oriko/puella.yaml",
+      "/data/suzune/puella.yaml",
+      "/data/tart/puella.yaml",
+      "/data/magireco/puella.yaml"
     ],
     "https://json.schemastore.org/github-action": [
-      "./github/workflows/*.yml"
+      "/github/workflows/*.yml"
     ],
   }
 }
