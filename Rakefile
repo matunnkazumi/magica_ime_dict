@@ -66,6 +66,7 @@ end
 
 def puella_all_name_list
   puella_name_files
+    .map { |file| file[0] == '/' ? file[1..] : file }
     .map { |file| Pathname(file) }
     .map { |path| Reader.load(path) }
     .flatten
