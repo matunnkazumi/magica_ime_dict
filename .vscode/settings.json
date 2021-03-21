@@ -12,7 +12,7 @@
       "./data/tart/puella.yaml",
       "./data/magireco/puella.yaml"
     ],
-    "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/github-action.json": [
+    "https://json.schemastore.org/github-action": [
       "./github/workflows/*.yml"
     ],
   }
