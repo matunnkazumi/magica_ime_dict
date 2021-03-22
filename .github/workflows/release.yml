@@ -44,22 +44,15 @@ jobs:
       - name: list build files
         run: |
           ls ./build/*
-      - name: Create Release
+      - name: Create Release and Upload Assets
         id: create_release
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
-          release_name: ${{ github.ref }}
+          name: ${{ github.ref }}
           body: ${{ steps.changelog_reader.outputs.changes }}
           draft: false
           prerelease: false
-      - name: Upload Release Assets
-        uses: alexellis/upload-assets@0.2.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_paths: '["./build/*"]'
-          asset_content_type: text/plain
+          files: "./build/*"
