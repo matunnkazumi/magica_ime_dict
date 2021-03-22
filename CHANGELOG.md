@@ -5,6 +5,8 @@
 このプロジェクトは [Semantic Versioning](https://semver.org/spec/v2.0.0.html) に従います。
 
 ## [Unreleased]
+### Added
+- 三輪みつね 追加
 
 ## [1.3.0] - 2021-02-22
 ### Added
