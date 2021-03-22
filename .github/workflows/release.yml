@@ -16,17 +16,17 @@ jobs:
     name: Create Release
     runs-on: ubuntu-20.04
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v2.3.4
         with:
           fetch-depth: 1
-      - name: setup ruby
+      - name: Setup Ruby
         uses: ruby/setup-ruby@v1.61.0
         with:
           bundler-cache: true
-      - name: build
+      - name: Build
         run: bundle exec rake
-      - name: Get version from tag
+      - name: Get Version from Tag
         id: tag_name
         run: |
           echo ::set-output name=current_version::${GITHUB_REF#refs/tags/v}
@@ -37,29 +37,22 @@ jobs:
         with:
           version: ${{ steps.tag_name.outputs.current_version }}
           path: ./CHANGELOG.md
-      - name: rename files to add version
+      - name: Rename Files to Add Version
         run: |
           rename.ul .txt _v${{ steps.changelog_reader.outputs.version }}.txt build/*.txt
           mv build/SKK-JISYO.magica build/SKK-JISYO.magica.v${{ steps.changelog_reader.outputs.version }}
-      - name: list build files
+      - name: List Build Files
         run: |
           ls ./build/*
-      - name: Create Release
+      - name: Create Release and Upload Assets
         id: create_release
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
-          release_name: ${{ github.ref }}
+          name: ${{ github.ref }}
           body: ${{ steps.changelog_reader.outputs.changes }}
           draft: false
           prerelease: false
-      - name: Upload Release Assets
-        uses: alexellis/upload-assets@0.2.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_paths: '["./build/*"]'
-          asset_content_type: text/plain
+          files: "./build/*"
