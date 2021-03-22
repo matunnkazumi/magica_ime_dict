@@ -50,7 +50,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
+          tag_name: v${{ steps.tag_name.outputs.current_version }}
           name: v${{ steps.tag_name.outputs.current_version }}
           body: ${{ steps.changelog_reader.outputs.changes }}
           draft: false
