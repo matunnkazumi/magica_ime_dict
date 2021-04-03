@@ -5,6 +5,13 @@
 このプロジェクトは [Semantic Versioning](https://semver.org/spec/v2.0.0.html) に従います。
 
 ## [Unreleased]
+### Added
+- まどか先輩 追加
+- いろはちゃん 追加
+- フェリシアちゃん 追加
+- レナちゃん 追加
+- 究極まどか先輩 追加
+- 至高いろはちゃん 追加
 
 ## [1.4.0] - 2021-03-23
 ### Added
