@@ -5,6 +5,7 @@
 このプロジェクトは [Semantic Versioning](https://semver.org/spec/v2.0.0.html) に従います。
 
 ## [Unreleased]
+- 愛生まばゆ 追加(名前のみ)
 
 ## [1.5.0] - 2021-04-03
 ### Added
