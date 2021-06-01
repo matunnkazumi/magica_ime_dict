@@ -5,7 +5,9 @@
 このプロジェクトは [Semantic Versioning](https://semver.org/spec/v2.0.0.html) に従います。
 
 ## [Unreleased]
-- 愛生まばゆ 追加(名前のみ)
+
+## [1.6.0] - 2021-06-01
+- 愛生まばゆ 追加
 
 ## [1.5.0] - 2021-04-03
 ### Added
@@ -43,7 +45,8 @@
 ### Added
 - 仕組みを一通り作成
 
-[Unreleased]: https://github.com/matunnkazumi/magica_ime_dict/compare/v1.5.0...HEAD
+[Unreleased]: https://github.com/matunnkazumi/magica_ime_dict/compare/v1.6.0...HEAD
+[1.6.0]: https://github.com/matunnkazumi/magica_ime_dict/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/matunnkazumi/magica_ime_dict/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/matunnkazumi/magica_ime_dict/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/matunnkazumi/magica_ime_dict/compare/v1.2.0...v1.3.0
