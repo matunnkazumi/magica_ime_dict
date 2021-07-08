@@ -5,6 +5,7 @@
 このプロジェクトは [Semantic Versioning](https://semver.org/spec/v2.0.0.html) に従います。
 
 ## [Unreleased]
+- 露 追加
 
 ## [1.7.0] - 2021-06-05
 - 桐野紗枝 追加
