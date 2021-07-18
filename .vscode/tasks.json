@@ -1,0 +1,42 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "rake",
+      "task": "build",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "rake: build"
+    },
+    {
+      "type": "rake",
+      "task": "test",
+      "group": "test",
+      "problemMatcher": [],
+      "label": "rake: test"
+    },
+    {
+      "type": "shell",
+      "group": "test",
+      "problemMatcher": [],
+      "label": "steep check",
+      "command": "bundle",
+      "args": [
+        "exec",
+        "steep",
+        "check"
+      ],
+    },
+    {
+      "type": "shell",
+      "group": "test",
+      "problemMatcher": [],
+      "label": "rubocop",
+      "command": "bundle",
+      "args": [
+        "exec",
+        "rubocop"
+      ],
+    }
+  ]
+}
