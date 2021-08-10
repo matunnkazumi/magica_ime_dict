@@ -5,6 +5,8 @@
 このプロジェクトは [Semantic Versioning](https://semver.org/spec/v2.0.0.html) に従います。
 
 ## [Unreleased]
+### Added
+- ミサ 追加
 
 ## [1.8.0] - 2021-07-08
 - 露 追加
