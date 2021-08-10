@@ -1,6 +1,9 @@
 class Changelog
   @lines: Array[String]
 
+  PATTERN_VERSION_LINE: Regexp
+  PATTERN_LABEL_LINK: Regexp
+
   def initialize: (Pathname) -> void
   def first_line: -> String
   def enum_version_lines: -> Array[String]
@@ -9,4 +12,5 @@ class Changelog
   def enum_type_lines: -> Array[String]
   def enum_link_label_definitions: -> Array[String]
   def link_label_dict: -> Hash[String, String]
+  def enum_version_sections: -> Hash[String, Array[String]]
 end
