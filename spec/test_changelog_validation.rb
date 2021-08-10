@@ -37,6 +37,16 @@ class TestChangeLogValidation < Minitest::Test
     end
   end
 
+  def test_change_type_exist
+    extract_type = /^\#{3} (?<type>\S+)/
+
+    sections = @changelog.enum_version_sections
+    sections.each do |version, section|
+      result = section.any? { |line| extract_type.match(line) }
+      assert(result, "変更種類の記載が無いセクションがあります #{version}")
+    end
+  end
+
   def test_link_label_definition_format
     label_lines = @changelog.enum_link_label_definitions
     format = /^\[[^\[\]]+\]: \S+$/
