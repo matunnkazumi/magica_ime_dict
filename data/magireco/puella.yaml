@@ -591,9 +591,15 @@
 - mei:
     kaki: マナツ
     yomi: まなつ
+- sei:
+    kaki: 水名
+    yomi: みずな
+  mei:
+    kaki: 露
+    yomi: つゆ
 - sonota:
-    - kaki: 露
-      yomi: つゆ
+    - kaki: 千鶴
+      yomi: ちづる
 - mei:
     kaki: ミサ
     yomi: みさ
