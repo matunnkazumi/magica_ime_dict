@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Changelog
+  PATTERN_VERSION_LINE = /^\#{2}[^#]/
+  PATTERN_LABEL_LINK = /^\[(?<label>[^\[\]]+)\]: (?<link>\S+)/
+
   def initialize(path)
     @lines = path.open.readlines
   end
@@ -10,10 +13,8 @@ class Changelog
   end
 
   def enum_version_lines
-    reqexp = /^\#{2}[^#]/
-
     @lines.select do |line|
-      reqexp.match(line)
+      PATTERN_VERSION_LINE.match(line)
     end
   end
 
@@ -43,11 +44,31 @@ class Changelog
   end
 
   def link_label_dict
-    regexp = /^\[(?<label>[^\[\]]+)\]: (?<link>\S+)/
-
     enum_link_label_definitions.map do |line|
-      matched = regexp.match(line)
+      matched = PATTERN_LABEL_LINK.match(line)
       [matched[:label], matched[:link]] unless matched.nil?
     end.compact.to_h
+  end
+
+  def enum_version_sections
+    # @type var state: String | nil
+    state = nil
+
+    @lines.chunk do |line|
+      state, element = version_section_parser(state, line)
+      element
+    end.to_h
+  end
+
+  private
+
+  def version_section_parser(state, line)
+    if PATTERN_VERSION_LINE.match(line)
+      [line, nil]
+    elsif PATTERN_LABEL_LINK.match(line)
+      [nil, nil]
+    else
+      [state, state]
+    end
   end
 end
