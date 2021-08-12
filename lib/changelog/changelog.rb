@@ -55,12 +55,20 @@ class Changelog
     state = nil
 
     @lines.chunk do |line|
-      if PATTERN_VERSION_LINE.match(line)
-        state = line
-      elsif PATTERN_LABEL_LINK.match(line)
-        state = nil
-      end
-      state
+      state, element = version_section_parser(state, line)
+      element
     end.to_h
+  end
+
+  private
+
+  def version_section_parser(state, line)
+    if PATTERN_VERSION_LINE.match(line)
+      [line, nil]
+    elsif PATTERN_LABEL_LINK.match(line)
+      [nil, nil]
+    else
+      [state, state]
+    end
   end
 end

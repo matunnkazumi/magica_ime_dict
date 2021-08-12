@@ -123,4 +123,18 @@ class TestChangeLog < Minitest::Test
 
     assert_equal(expected, log.link_label_dict.keys, '順番が異なります')
   end
+
+  def test_version_sections
+    log = Changelog.new(Pathname.new(@tempfile.path))
+
+    expected = {
+      "## [Unreleased]\n" => ["\n"],
+      "## [1.0.0] - 2017-06-21\n" => ["### Added\n", "- test\n", "\n"],
+      "## [0.2.0] - 2017-06-20\n" => ["### Changed\n", "- test\n", "\n"],
+      "## [0.0.1] - 2017-06-19\n" => ["### Added\n", "- test\n", "- test2\n", "\n"],
+      "##  - invalid\n" => ["### Deprecated\n", "- testA\n", "- testB\n", "\n"]
+    }
+
+    assert_equal expected, log.enum_version_sections
+  end
 end

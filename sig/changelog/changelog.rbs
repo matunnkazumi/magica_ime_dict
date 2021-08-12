@@ -13,4 +13,8 @@ class Changelog
   def enum_link_label_definitions: -> Array[String]
   def link_label_dict: -> Hash[String, String]
   def enum_version_sections: -> Hash[String, Array[String]]
+
+  private
+
+  def version_section_parser: (String | nil, String) -> [String | nil, String | nil]
 end
