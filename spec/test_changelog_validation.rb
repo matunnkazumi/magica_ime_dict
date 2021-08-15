@@ -41,10 +41,12 @@ class TestChangeLogValidation < Minitest::Test
     extract_type = /^\#{3} (?<type>\S+)/
 
     sections = @changelog.enum_version_sections
-    sections.each do |version, section|
-      result = section.any? { |line| extract_type.match(line) }
-      assert(result, "変更種類の記載が無いセクションがあります #{version}")
-    end
+    sections
+      .reject { |version| version.include?('Unreleased') }
+      .each do |version, section|
+        result = section.any? { |line| extract_type.match(line) }
+        assert(result, "変更種類の記載が無いセクションがあります #{version}")
+      end
   end
 
   def test_link_label_definition_format
