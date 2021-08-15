@@ -5,6 +5,8 @@
 このプロジェクトは [Semantic Versioning](https://semver.org/spec/v2.0.0.html) に従います。
 
 ## [Unreleased]
+
+## [1.9.0] - 2021-08-15
 ### Added
 - ミサ(ナハトメルヒェン) 追加
 - 千鶴 追加
