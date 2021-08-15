@@ -72,7 +72,8 @@
 ### Added
 - 仕組みを一通り作成
 
-[Unreleased]: https://github.com/matunnkazumi/magica_ime_dict/compare/v1.8.0...HEAD
+[Unreleased]: https://github.com/matunnkazumi/magica_ime_dict/compare/v1.9.0...HEAD
+[1.9.0]: https://github.com/matunnkazumi/magica_ime_dict/compare/v1.8.0...v1.9.0
 [1.8.0]: https://github.com/matunnkazumi/magica_ime_dict/compare/v1.7.0...v1.8.0
 [1.7.0]: https://github.com/matunnkazumi/magica_ime_dict/compare/v1.6.0...v1.7.0
 [1.6.0]: https://github.com/matunnkazumi/magica_ime_dict/compare/v1.5.0...v1.6.0
