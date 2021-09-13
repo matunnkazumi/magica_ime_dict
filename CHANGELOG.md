@@ -5,6 +5,8 @@
 このプロジェクトは [Semantic Versioning](https://semver.org/spec/v2.0.0.html) に従います。
 
 ## [Unreleased]
+### Added
+- 由良蛍 追加
 
 ## [1.9.0] - 2021-08-15
 ### Added
