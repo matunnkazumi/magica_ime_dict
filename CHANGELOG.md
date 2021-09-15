@@ -5,6 +5,8 @@
 このプロジェクトは [Semantic Versioning](https://semver.org/spec/v2.0.0.html) に従います。
 
 ## [Unreleased]
+
+## [1.10.0] - 2021-09-15
 ### Added
 - 由良蛍 追加
 
@@ -74,7 +76,8 @@
 ### Added
 - 仕組みを一通り作成
 
-[Unreleased]: https://github.com/matunnkazumi/magica_ime_dict/compare/v1.9.0...HEAD
+[Unreleased]: https://github.com/matunnkazumi/magica_ime_dict/compare/v1.10.0...HEAD
+[1.10.0]: https://github.com/matunnkazumi/magica_ime_dict/compare/v1.9.0...v1.10.0
 [1.9.0]: https://github.com/matunnkazumi/magica_ime_dict/compare/v1.8.0...v1.9.0
 [1.8.0]: https://github.com/matunnkazumi/magica_ime_dict/compare/v1.7.0...v1.8.0
 [1.7.0]: https://github.com/matunnkazumi/magica_ime_dict/compare/v1.6.0...v1.7.0
