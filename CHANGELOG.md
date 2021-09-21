@@ -5,6 +5,9 @@
 このプロジェクトは [Semantic Versioning](https://semver.org/spec/v2.0.0.html) に従います。
 
 ## [Unreleased]
+### Added
+- 入名クシュ 追加
+- アネカ 追加
 
 ## [1.10.0] - 2021-09-15
 ### Added
