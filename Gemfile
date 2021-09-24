@@ -15,4 +15,4 @@ gem 'rake', '13.0.3'
 gem 'rubocop', '1.12.1', require: false
 gem 'rubocop-minitest', '0.11.1', require: false
 gem 'rubocop-rake', '0.5.1', require: false
-gem 'steep', '0.45.0'
+gem 'steep', '0.46.0'
