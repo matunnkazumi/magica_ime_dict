@@ -18,7 +18,7 @@ class TestChangeLogValidation < Minitest::Test
   def test_versions
     format = /^\#{2} \S+ - \d{4}-\d{2}-\d{2}$/
 
-    lines = @changelog.enum_version_lines[Range.new(1, nil)] # 型エラー回避のためRange.new
+    lines = @changelog.enum_version_lines[1..nil]
     lines&.each do |line|
       assert_match format, line, 'バージョンの行のフォーマットが不正です'
     end
@@ -83,7 +83,7 @@ class TestChangeLogValidation < Minitest::Test
 
   def test_link_labels_link
     targets = @changelog.enum_versions[1...-1]
-    prev_targets = @changelog.enum_versions[Range.new(2, nil)] # 型エラー回避のためRange.new
+    prev_targets = @changelog.enum_versions[2..nil]
 
     targets.zip(prev_targets).each do |version|
       url = @changelog.link_label_dict[version[0]]
