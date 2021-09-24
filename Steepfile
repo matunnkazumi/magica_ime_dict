@@ -10,7 +10,7 @@ target :lib do
 
   check 'lib'
 
-  library 'pathname', 'csv', 'forwardable'
+  library 'pathname'
 end
 
 target :settings do
