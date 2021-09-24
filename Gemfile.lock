@@ -52,12 +52,12 @@ GEM
     rubocop-rake (0.5.1)
       rubocop
     ruby-progressbar (1.11.0)
-    steep (0.44.0)
+    steep (0.45.0)
       activesupport (>= 5.1)
       language_server-protocol (>= 3.15, < 4.0)
       listen (~> 3.0)
       parallel (>= 1.0.0)
-      parser (>= 2.7)
+      parser (>= 3.0)
       rainbow (>= 2.2.2, < 4.0)
       rbs (>= 1.2.0)
       terminal-table (>= 2, < 4)
@@ -79,7 +79,7 @@ DEPENDENCIES
   rubocop (= 1.12.1)
   rubocop-minitest (= 0.11.1)
   rubocop-rake (= 0.5.1)
-  steep (= 0.44.0)
+  steep (= 0.45.0)
 
 BUNDLED WITH
    2.2.22
