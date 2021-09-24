@@ -5,6 +5,8 @@
 # http://creativecommons.org/publicdomain/zero/1.0/deed.ja
 #
 
+D = Steep::Diagnostic
+
 target :lib do
   signature 'sig'
 
@@ -21,7 +23,7 @@ target :settings do
 
   library 'pathname'
 
-  typing_options :lenient
+  configure_code_diagnostics(D::Ruby.lenient)
 end
 
 target :spec do
@@ -31,5 +33,5 @@ target :spec do
 
   library 'pathname'
 
-  typing_options :lenient
+  configure_code_diagnostics(D::Ruby.lenient)
 end
