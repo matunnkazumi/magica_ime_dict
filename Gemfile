@@ -10,7 +10,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 gem 'json_schemer', '0.2.18'
-gem 'minitest', '5.14.4'
+gem 'minitest', '5.15.0'
 gem 'rake', '13.0.3'
 gem 'rubocop', '1.24.0', require: false
 gem 'rubocop-minitest', '0.17.0', require: false
