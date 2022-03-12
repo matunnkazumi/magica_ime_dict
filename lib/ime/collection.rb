@@ -16,7 +16,7 @@ module IME
       end
 
       def ==(other)
-        [@yomi, @kaki, @category] == [other.yomi, other.kaki, other.category]
+        @yomi == other.yomi && @kaki == other.kaki && @category == other.category
       end
 
       def eql?(other)
