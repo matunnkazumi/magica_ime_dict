@@ -1,6 +1,10 @@
 module IME
   module Collection
-    class Entry[T]
+    class Entry[T < _HasEqual]
+      interface _HasEqual
+        def ==: (untyped) -> bool
+      end
+
       attr_reader yomi: String
       attr_reader kaki: String
       attr_reader category: T
